@@ -71,7 +71,7 @@ public class ItemController {
     public Resource downloadImage(@PathVariable String fileName) throws MalformedURLException {
         // "file:/Users/../19e39b3d-55a0-484d-9d44-bb61695bf735.jpg" -> 이렇게 file.dir 경로에 있는 파일을 찾아서 반환해줌
         // "file:" 이라 하면 내부 파일에 접근
-        return new UrlResource("file:" + fileStore.getFullPath(fileName));
+        return new UrlResource("file:" + fileStore.getFullPath(fileName)); // 실제 파일 경로에 접근
     }
 
     @GetMapping("/attach/{itemId}")
