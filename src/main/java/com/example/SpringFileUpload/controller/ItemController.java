@@ -85,7 +85,7 @@ public class ItemController {
         log.info("uploadFilename = {}", uploadFileName);
 
         String encodedUploadFileName = UriUtils.encode(uploadFileName, StandardCharsets.UTF_8); // 한글이나 특수 문자들이 깨질 수도 있음.(웹 브라우저마다 다름)
-        String contentDisposition = "attachment; filename=\"" + encodedUploadFileName + "\""; // 규약임 그냥
+        String contentDisposition = "attachment; filename=\"" + encodedUploadFileName + "\""; // 규약임(attachment면 이 파일 이름으로 다운로드)
 
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, contentDisposition) // 헤더에 값을 넣지 않으면 다운로드가 받아지지 않고, 그 파일의 내용이 폼으로 그냥 띄워짐
